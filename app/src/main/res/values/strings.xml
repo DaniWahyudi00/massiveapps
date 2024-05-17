@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">massiveapp</string>
+    <string name="menu_message">message</string>
 </resources>
