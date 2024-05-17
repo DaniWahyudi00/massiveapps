@@ -20,6 +20,7 @@ import com.example.massiveapp.R
 import com.example.massiveapp.navigation.NavigationItem
 import com.example.massiveapp.navigation.Screen
 import com.example.massiveapp.ui.theme.MassiveappTheme
+import com.example.massiveapp.ui.theme.poppinsFontFamily
 
 @Composable
 fun BottomNavigation(
@@ -79,11 +80,13 @@ fun BottomNavigation(
                     if (isSelected) {
                         Text(
                             text = item.title,
-                            color = MaterialTheme.colorScheme.primary
+                            color = MaterialTheme.colorScheme.primary,
+                            fontFamily = poppinsFontFamily
                         )
                     } else {
                         Text(
                             text = item.title,
+                            fontFamily = poppinsFontFamily
                         )
                     }
                 },

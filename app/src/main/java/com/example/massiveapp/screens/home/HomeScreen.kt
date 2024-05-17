@@ -8,6 +8,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.massiveapp.ui.theme.MassiveappTheme
+import com.example.massiveapp.ui.theme.poppinsFontFamily
 
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier) {
