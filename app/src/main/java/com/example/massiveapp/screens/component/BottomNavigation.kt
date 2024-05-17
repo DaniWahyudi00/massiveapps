@@ -1,5 +1,6 @@
 package com.example.massiveapp.screens.component
 
+import androidx.compose.foundation.layout.height
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
@@ -12,7 +13,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.core.graphics.toColorInt
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
@@ -27,7 +30,7 @@ fun BottomNavigation(
     navController: NavHostController
 ) {
     NavigationBar(
-        containerColor = Color.White
+        containerColor = Color.White,
     ) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentRoute = navBackStackEntry?.destination?.route
@@ -61,7 +64,6 @@ fun BottomNavigation(
             val isSelected = currentRoute == item.screen.route
             NavigationBarItem(
                 selected = isSelected,
-                onClick = {},
                 icon = {
                     if (isSelected) {
                         Icon(
@@ -92,7 +94,16 @@ fun BottomNavigation(
                 },
                 colors = NavigationBarItemDefaults.colors(
                     indicatorColor = Color.White
-                )
+                ),
+                onClick = {
+                    navController.navigate(item.screen.route) {
+                        popUpTo(navController.graph.findStartDestination().id) {
+                            saveState = true
+                        }
+                        restoreState = true
+                        launchSingleTop = true
+                    }
+                }
             )
         }
     }

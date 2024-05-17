@@ -12,6 +12,9 @@ import androidx.navigation.compose.rememberNavController
 import com.example.massiveapp.navigation.Screen
 import com.example.massiveapp.screens.component.BottomNavigation
 import com.example.massiveapp.screens.home.HomeScreen
+import com.example.massiveapp.screens.profile.ProfileScreen
+import com.example.massiveapp.screens.service.ServiceScreen
+import com.example.massiveapp.screens.transaction.TransactionScreen
 import com.example.massiveapp.ui.theme.MassiveappTheme
 
 @Composable
@@ -28,6 +31,15 @@ fun BuilderHomeApp(
         ) {
             composable(route = Screen.Home.route) {
                 HomeScreen()
+            }
+            composable(route = Screen.Service.route) {
+                ServiceScreen()
+            }
+            composable(route = Screen.Transaction.route) {
+                TransactionScreen()
+            }
+            composable(route = Screen.Profile.route) {
+                ProfileScreen()
             }
         }
     }
