@@ -11,7 +11,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            MassiveappTheme {
+            MassiveappTheme(dynamicColor = false) {
                 BuilderHomeApp()
             }
         }
